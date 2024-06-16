@@ -53,10 +53,10 @@ module.exports = {
         const supply = interaction.options.getString('supply')
         const pads = interaction.options.getString('pads')
         if (type == "unloading") { 
-            const from = "to"
+            from = "to"
         }
         else {
-            const from = "from"
+            from = "from"
         }
 		await interaction.reply(`**${carrier}** is ${type} **${commodity}** ${from} **${station}** (${pads}) in **${system}**. **${profit}k**/unit profit, **${supply}k** units.`);
         }, 
