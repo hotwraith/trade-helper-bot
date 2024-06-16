@@ -58,6 +58,6 @@ module.exports = {
         else {
             from = "from"
         }
-		await interaction.reply(`**${carrier}** is ${type} **${commodity}** ${from} **${station}** (${pads}) in **${system}**. **${profit}k**/unit profit, **${supply}k** units.`);
+		await interaction.reply(`\`\`\`**${carrier}** is ${type} **${commodity}** ${from} **${station}** (${pads}) in **${system}**. **${profit}k**/unit profit, **${supply}k** units.\`\`\``);
         }, 
 };
