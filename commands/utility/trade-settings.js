@@ -16,6 +16,10 @@ module.exports = {
 			.setDescription('Your carrier name')
             .setRequired(true))
 	.addStringOption(option =>
+		option.setName('id')
+			.setDescription('Your carrier id')
+            .setRequired(true))
+	.addStringOption(option =>
 		option.setName('commodity')
 			.setDescription('Type the commodity traded')
             .setRequired(true))
@@ -46,6 +50,7 @@ module.exports = {
 	async execute(interaction) {
         const type = interaction.options.getString('type')
         const carrier = interaction.options.getString('carrier')
+        const id = interaction.options.getString('id')
         const commodity = interaction.options.getString('commodity')
         const system = interaction.options.getString('system')
         const station = interaction.options.getString('station')
@@ -53,13 +58,13 @@ module.exports = {
         const supply = interaction.options.getString('supply')
         const pads = interaction.options.getString('pads')
         if (type == "UNLOADING") { 
-            buying = `${carrier}`
+            buying = `${carrier} ${id}`
             selling = `${station}`
         }
         else {
             buying = `${station}`
-            selling = `${carrier}`
+            selling = `${carrier} ${id}`
         }
-		await interaction.reply(` \`\`\` INCOMING WIDEBAND TRANSMISSION: ${carrier} __**${type}**__ MISSION IN PROGRESS\n BUY FROM: **${buying}**\n COMMODITY: **${commodity}**\n SELL TO: **${selling}** (${pads}) in system **${system}**\n PROFIT: **${profit}k/unit** : **${supply}k** supply\`\`\``);
+		await interaction.reply(` \`\`\` INCOMING WIDEBAND TRANSMISSION: **${carrier}** ${id} __**${type}**__ MISSION IN PROGRESS\n BUY FROM: **${buying}**\n COMMODITY: **${commodity}**\n SELL TO: **${selling}** (${pads}) in system **${system}**\n PROFIT: **${profit}k/unit** : **${supply}k** supply\`\`\``);
         }, 
 };
