@@ -59,12 +59,12 @@ module.exports = {
         const pads = interaction.options.getString('pads')
         if (type == "UNLOADING") { 
             buying = `${carrier} (${id})`
-            selling = `${station}`
+            selling = `${station} (${pads})`
         }
         else {
-            buying = `${station}`
+            buying = `${station} (${pads})`
             selling = `${carrier} (${id})`
         }
-		await interaction.reply(` \`\`\` INCOMING WIDEBAND TRANSMISSION: **${carrier}** (${id}) __**${type}**__ MISSION IN PROGRESS\n BUY FROM: **${buying}**\n COMMODITY: **${commodity}**\n SELL TO: **${selling}** (${pads}) in system **${system}**\n PROFIT: **${profit}k/unit** : **${supply}k** supply\`\`\``);
+		await interaction.reply(` \`\`\` INCOMING WIDEBAND TRANSMISSION: **${carrier}** (${id}) __**${type}**__ MISSION IN PROGRESS\n BUY FROM: **${buying}**\n COMMODITY: **${commodity}**\n SELL TO: **${selling}** in system **${system}**\n PROFIT: **${profit}k/unit** : **${supply}k** supply\`\`\``);
         }, 
 };
