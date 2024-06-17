@@ -15,6 +15,10 @@ module.exports = {
 		option.setName('carrier')
 			.setDescription('Your carrier name')
             .setRequired(true))
+    .addStringOption(option =>
+		option.setName('id')
+			.setDescription('Your carrier id')
+            .setRequired(true))
 	.addStringOption(option =>
 		option.setName('commodity')
 			.setDescription('Type the commodity traded')
@@ -46,6 +50,7 @@ module.exports = {
 	async execute(interaction) {
         const type = interaction.options.getString('type')
         const carrier = interaction.options.getString('carrier')
+        const id = interaction.options.getString('id')
         const commodity = interaction.options.getString('commodity')
         const system = interaction.options.getString('system')
         const station = interaction.options.getString('station')
@@ -58,6 +63,6 @@ module.exports = {
         else {
             from = "from"
         }
-		await interaction.reply(`\`\`\`**${carrier}** is ${type} **${commodity}** ${from} **${station}** (${pads}) in **${system}**. **${profit}k**/unit profit, **${supply}k** units.\`\`\``);
+		await interaction.reply(`\`\`\`**${carrier} ${id}** is ${type} **${commodity}** ${from} **${station}** (${pads}) in **${system}**. **${profit}k**/unit profit, **${supply}k** units.\`\`\``);
         }, 
 };
